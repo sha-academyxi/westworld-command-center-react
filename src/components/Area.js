@@ -1,13 +1,18 @@
 import React from 'react';
 import '../stylesheets/Area.css'
+import HostList from './HostList';
+import areaNameMap from '../services/helpers'
 
-const Area = () => (
 
-  <div className='area' id={/* Pass in the area name here to make sure this is styled correctly */}>
-    <h3 className='labels'>{/* Don't just pass in the name from the data...clean that thing up */}</h3>
+const Area = ({ area, hosts, selectedHostID, handleClickHost }) => (
 
-    {/* See Checkpoint 1 item 2 in the Readme for a clue as to what goes here */}
-
+  <div className='area' id={area.name}>
+    <h3 className='labels'>{areaNameMap[area.name]}</h3>
+      <HostList
+        hosts={hosts}
+        selectedHostID={selectedHostID}
+        handleClickHost={handleClickHost}
+        />
   </div>
 
 )
